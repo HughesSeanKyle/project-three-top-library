@@ -3,16 +3,18 @@
 App inspiration drawn from [`this design`](https://dribbble.com/shots/7234710-Book-Reviews-Website#).
 More information on the web designer [`here`](https://dribbble.com/Tubik).
 
+Authentication form UI [`inspiration`](https://dribbble.com/shots/19338138-Log-in-page-Untitled-UI) 
+
 ## Features 
 
 The goal of this web application is to build a web application where a user can SignUp, SignIn and signOut. This will be achieved using Firebase for authentication, local storage as a persistence mechanism (Later iterations will make use of either MongoDB or PostGreSQL). React and Bootstrap 5 will be used to build the UI. 
 
-### Feature 1 - Build authentication components 
+### Feature 1 - Build authentication components (&& Federated Signup)
 1. SignUp form 
 2. Confirm Signup form 
 3. SignIn Form
 
-### Feature 2 - Implement Firebase Authentication logic 
+### Feature 2 - Implement Firebase Authentication logic (&& Federated Signin)
 1. Logic for sign up
 2. Logic for confirm sign up
 3. Logic for signin 
@@ -31,5 +33,6 @@ The goal of this web application is to build a web application where a user can 
 
 ### Feature 5 - Book application 
 1. Protect route if no JWT
-2. Further features to be defined later 
+2. When clicking a Book from the grid a sidebar open from the right to left showing all book information. (See Design) 
+3. Further features to be defined later 
 
