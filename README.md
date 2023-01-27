@@ -1,10 +1,10 @@
 # TOP project 3 - Library: React, Firebase Auth and LS persistence
 
-This project is a challege from The Odin Project ([`Challenge 3`)[https://www.theodinproject.com/lessons/node-path-javascript-library]].
+This project is a challege from The Odin Project ([`Challenge 3`]([https://www.theodinproject.com/lessons/node-path-javascript-library).
 
 ## Design Inspiration
 
-App inspiration drawn from [`this design`] (https://dribbble.com/shots/7234710-Book-Reviews-Website#)
+App inspiration drawn from [`this design`](https://dribbble.com/shots/7234710-Book-Reviews-Website#)
 More information on the web designer [`here`](https://dribbble.com/Tubik)
 
 ## Available Scripts
