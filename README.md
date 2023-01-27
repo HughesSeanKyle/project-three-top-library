@@ -1,4 +1,4 @@
-# TOP project 3 - Library: React, Firebase Auth and LS persistence
+# TOP project 3 - Library: React, Bootstrap 5, Firebase Auth and LS persistence
 
 This project is a challege from The Odin Project [`Challenge 3`](https://www.theodinproject.com/lessons/node-path-javascript-library).
 
