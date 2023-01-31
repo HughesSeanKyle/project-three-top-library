@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 480px) {
+	.form-padding {
+		padding: 0 18px;
+	}
+}
