@@ -4,6 +4,9 @@ function App() {
 	return (
 		<div className="bg-custom-green grid grid-cols-2 sm:grid-cols-2 h-screen w-full">
 			<div className="flex flex-col justify-center">
+				<h2 className="text-4xl text-custom-white font-bold text-center mb-5">
+					BookWorks.io
+				</h2>
 				<form className="max-w-[400px] w-full mx-auto rounded-lg shadow-lg shadow-custom-black bg-gray-900 p-8 px-8">
 					<h2 className="text-4xl text-custom-white font-bold text-center">
 						SIGN IN
