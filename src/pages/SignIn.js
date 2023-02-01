@@ -37,7 +37,7 @@ const SignIn = () => {
 						SIGNIN
 					</button>
 				</form>
-				<div className="flex flex-wrap mt-6 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
+				<div className="max-w-[360px] flex flex-wrap mt-6 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
 					<div className="w-1/2">
 						<a
 							href="#pablo"
