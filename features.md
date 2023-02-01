@@ -13,23 +13,27 @@ The goal of this web application is to build a web application where a user can 
 1. SignUp form (Page) 
 2. Confirm Signup form (Page) 
 3. SignIn Form (Page)
+4. Forgot Password (Page)
 
 ### Feature 2 - Implement Firebase Authentication logic (&& Federated Signin)
 1. Logic for sign up
 2. Logic for confirm sign up
 3. Logic for signin 
-4. Logic for signout 
+4. Logic for signout
+5. Logic Forgot Password 
 
 ### Feature 3 - Form validation 
 1. Validation sign up
 2. Validation confirm sign up
 3. Validation sign in
+4. Validation forgot password
 
 ### Feature 4 - User authentication alerts 
 1. Alerts sign up
 2. Alerts confirm sign up
 3. Alerts sign in
 4. Alerts sign out
+5. Alerts forgot password 
 
 ### Feature 5 - Book application 
 1. Protect route if no JWT
