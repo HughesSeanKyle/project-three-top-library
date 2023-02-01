@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import signUpImage from '../assets/images/signup-image.jpg';
 import bookTransparent from '../assets/images/book-no-bg-trimmy.jpg';
 
@@ -36,6 +37,22 @@ const SignIn = () => {
 						SIGNIN
 					</button>
 				</form>
+				<div className="flex flex-wrap mt-6 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
+					<div className="w-1/2">
+						<a
+							href="#pablo"
+							onClick={(e) => e.preventDefault()}
+							className="text-blueGray-200"
+						>
+							<small>Forgot password?</small>
+						</a>
+					</div>
+					<div className="w-1/2 text-right">
+						<Link to="/auth/register" className="text-blueGray-200">
+							<small>Create new account</small>
+						</Link>
+					</div>
+				</div>
 			</div>
 			<div className="hidden lg:block shadow-lg inset-0 rounded-l-lg shadow-lg shadow-custom-gray">
 				<img
