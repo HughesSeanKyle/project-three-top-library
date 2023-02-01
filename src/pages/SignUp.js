@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import signUpImage from '../assets/images/signup-image.jpg';
 
-const SignIn = () => {
+const SignUp = () => {
 	return (
 		<div className="bg-custom-green grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 h-screen w-full">
 			<div className="flex flex-col justify-center content-center items-center form-padding image-bg-mobile-only dark-layer">
@@ -11,7 +11,7 @@ const SignIn = () => {
 				</h2>
 				<form className="max-w-[400px] w-full mx-auto rounded-lg shadow-lg shadow-custom-black bg-gray-900 p-8 px-8 mobile-z-index">
 					<h2 className="text-4xl text-custom-white font-bold text-center">
-						SIGN IN
+						SIGN UP
 					</h2>
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Username</label>
@@ -33,18 +33,13 @@ const SignIn = () => {
 						</p>
 					</div>
 					<button className="w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500">
-						SIGN IN
+						SIGN UP
 					</button>
 				</form>
 				<div className="max-w-[360px] flex flex-wrap mt-6 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
 					<div className="w-1/2">
-						<Link to="/auth/forgot-password">
-							<small>Forgot password?</small>
-						</Link>
-					</div>
-					<div className="w-1/2 text-right">
-						<Link to="/auth/signup">
-							<small>Create new account</small>
+						<Link to="/auth/signin">
+							<small>Already have an account?</small>
 						</Link>
 					</div>
 				</div>
@@ -60,4 +55,4 @@ const SignIn = () => {
 	);
 };
 
-export default SignIn;
+export default SignUp;

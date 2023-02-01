@@ -12,7 +12,7 @@ The goal of this web application is to build a web application where a user can 
 ### Feature 1 - Build authentication components (&& Federated Signup)
 1. SignUp form (Page) 
 2. Confirm Signup form (Page) 
-3. SignIn Form (Page) Complete
+3. SignIn Form (Page) Complete 01/02
 4. Forgot Password (Page)
 
 ### Feature 2 - Implement Firebase Authentication logic (&& Federated Signin)
@@ -41,4 +41,5 @@ The goal of this web application is to build a web application where a user can 
 3. Further features to be defined later
 4. Incorporate with firebase storage mechanisms => (CRUD)
 For this make use of the cloud functions and follow micro services architecture pattern 
+5. Use project 2 (Niftyswap) dashboard as inspiration for this dash. 
 
