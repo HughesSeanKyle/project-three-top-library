@@ -44,7 +44,7 @@ const SignIn = () => {
 						</Link>
 					</div>
 					<div className="w-1/2 text-right">
-						<Link to="/auth/register">
+						<Link to="/auth/signup">
 							<small>Create new account</small>
 						</Link>
 					</div>
