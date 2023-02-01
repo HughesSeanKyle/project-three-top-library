@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
+import ForgotPassword from './pages/ForgotPassword';
 
 function App() {
 	return (
@@ -10,6 +11,8 @@ function App() {
 			<Routes>
 				<Route path={'/auth/signin'} element={<SignIn />} />
 				<Route path={'/auth/signup'} element={<SignUp />} />
+				<Route path={'/auth/forgot-password'} element={<ForgotPassword />} />
+
 				<Route path={'/'} element={<SignIn />} />
 			</Routes>
 		</BrowserRouter>
