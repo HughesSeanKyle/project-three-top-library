@@ -6,4 +6,28 @@
 	.form-padding {
 		padding: 0 18px;
 	}
+
+	.image-bg-mobile-only {
+		background-image: url('./assets/images//book-no-bg-trimmy.jpg');
+		background-position: center;
+		object-fit: cover;
+	}
+
+	.dark-layer {
+		position: relative;
+	}
+
+	.dark-layer::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+
+	.mobile-z-index {
+		z-index: 10;
+	}
 }
