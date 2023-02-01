@@ -41,11 +41,6 @@ const SignUp = () => {
 							type="password"
 						/>
 					</div>
-					<div className="flex justify-between text-custom-white py-2">
-						<p className="flex items-center">
-							<input className="mr-2" type="checkbox" /> Remember Me
-						</p>
-					</div>
 					<button className="w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500">
 						SIGN UP
 					</button>
