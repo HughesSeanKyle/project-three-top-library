@@ -39,16 +39,12 @@ const SignIn = () => {
 				</form>
 				<div className="max-w-[360px] flex flex-wrap mt-6 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
 					<div className="w-1/2">
-						<a
-							href="#pablo"
-							onClick={(e) => e.preventDefault()}
-							className="text-blueGray-200"
-						>
+						<Link to="/auth/forgot-password">
 							<small>Forgot password?</small>
-						</a>
+						</Link>
 					</div>
 					<div className="w-1/2 text-right">
-						<Link to="/auth/register" className="text-blueGray-200">
+						<Link to="/auth/register">
 							<small>Create new account</small>
 						</Link>
 					</div>
