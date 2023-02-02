@@ -16,28 +16,28 @@ const SignUp = () => {
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Username</label>
 						<input
-							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray"
+							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray text-custom-black"
 							type="text"
 						/>
 					</div>
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Email</label>
 						<input
-							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray"
+							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray text-custom-black"
 							type="email"
 						/>
 					</div>
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Password</label>
 						<input
-							className="p-2 rounded-lg bg-custom-white mt-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray"
+							className="p-2 rounded-lg bg-custom-white mt-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray text-custom-black"
 							type="password"
 						/>
 					</div>
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Confirm Password</label>
 						<input
-							className="p-2 rounded-lg bg-custom-white mt-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray"
+							className="p-2 rounded-lg bg-custom-white mt-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray text-custom-black"
 							type="password"
 						/>
 					</div>

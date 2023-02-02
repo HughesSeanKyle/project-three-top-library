@@ -16,7 +16,7 @@ const ConfirmSignUp = () => {
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Code</label>
 						<input
-							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray"
+							className="rounded-lg bg-custom-white mt-2 p-2 focus:border-blue-900 focus:outline-none focus:ring focus:ring-custom-gray text-custom-black"
 							type="email"
 							placeholder="Please enter code sent to your email"
 						/>
