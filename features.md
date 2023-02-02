@@ -16,13 +16,15 @@ The goal of this web application is to build a web application where a user can 
 4. Forgot Password (Page) Complete 01/02
 
 ### Feature 2 - Form validation (Continue here 02/02)
-1. Validation sign up
-2. Validation confirm sign up
-3. Validation sign in
+1. Validation sign up Complete 02/02
+2. Validation confirm sign up 
+3. Validation sign in Complete 02/02
 4. Validation forgot password
 
 ### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
 1. Logic for sign up
+1.1 When adding firebase auth logic implement isSubmitting from RHF. If isSubmitting true then loader in btn else none. Same goes for other forms 
+1.2 Consider what user attributes will be useful right from the start  
 2. Logic for confirm sign up
 This route can only be accessed via Signup as step 1 of the flow
 3. Logic for signin 
