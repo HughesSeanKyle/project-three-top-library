@@ -16,8 +16,8 @@ The goal of this web application is to build a web application where a user can 
 4. Forgot Password (Page) Complete 01/02
 
 ### Feature 2 - Form validation (Continue here 02/02)
-1. Validation sign up
-2. Validation confirm sign up
+1. Validation sign up Complete 02/02
+2. Validation confirm sign up 
 3. Validation sign in Complete 02/02
 4. Validation forgot password
 
