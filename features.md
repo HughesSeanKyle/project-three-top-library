@@ -11,23 +11,23 @@ The goal of this web application is to build a web application where a user can 
 
 ### Feature 1 - Build authentication components (&& Federated Signup (Later))
 1. SignUp form (Page) Complete 01/02
-2. Confirm Signup form (Page) 
+2. Confirm Signup form (Page) Complete 01/02
 3. SignIn Form (Page) Complete 01/02
 4. Forgot Password (Page) Complete 01/02
 
-### Feature 2 - Implement Firebase Authentication logic (&& Federated Signin)
+### Feature 2 - Form validation (Continue here 02/02)
+1. Validation sign up
+2. Validation confirm sign up
+3. Validation sign in
+4. Validation forgot password
+
+### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
 1. Logic for sign up
 2. Logic for confirm sign up
 This route can only be accessed via Signup as step 1 of the flow
 3. Logic for signin 
 4. Logic for signout
 5. Logic Forgot Password 
-
-### Feature 3 - Form validation 
-1. Validation sign up
-2. Validation confirm sign up
-3. Validation sign in
-4. Validation forgot password
 
 ### Feature 4 - User authentication alerts 
 1. Alerts sign up

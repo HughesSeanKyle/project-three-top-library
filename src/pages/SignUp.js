@@ -45,7 +45,7 @@ const SignUp = () => {
 						SIGN UP
 					</button>
 				</form>
-				<div className="max-w-[360px] flex flex-wrap mt-1 mb-3 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
+				<div className="max-w-[333px] flex flex-wrap mt-1 mb-3 relative w-2/3 mobile-width-reset text-custom-white font-semibold">
 					<div className="w-1/2">
 						<Link to="/auth/signin">
 							<small>Already have an account?</small>
