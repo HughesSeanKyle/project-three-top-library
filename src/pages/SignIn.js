@@ -16,6 +16,7 @@ const SignIn = () => {
 	const {
 		register,
 		handleSubmit,
+		watch,
 		formState: { errors, isSubmitting },
 	} = useForm({
 		mode: 'onBlur',
@@ -23,6 +24,14 @@ const SignIn = () => {
 	});
 
 	console.log('errors', errors);
+
+	const username = watch('username');
+	const password = watch('password');
+
+	const disabledBtnClasses =
+		!username || !password
+			? 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500 cursor-not-allowed'
+			: 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500';
 
 	return (
 		<div className="bg-custom-green grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 h-screen w-full">
@@ -43,7 +52,7 @@ const SignIn = () => {
 							placeholder="Your username"
 							{...register('username')}
 						/>
-						<p>{errors?.username?.message}</p>
+						<p className="text-custom-danger">{errors?.username?.message}</p>
 					</div>
 					<div className="flex flex-col text-custom-white py-2">
 						<label>Password</label>
@@ -54,13 +63,22 @@ const SignIn = () => {
 							placeholder="Your passowrd"
 							{...register('password')}
 						/>
+						<p className="text-custom-danger">{errors?.password?.message}</p>
 					</div>
 					<div className="flex justify-between text-custom-white py-2">
 						<p className="flex items-center">
 							<input className="mr-2" type="checkbox" /> Remember Me
 						</p>
 					</div>
-					<button className="w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500">
+					<button
+						className={disabledBtnClasses}
+						disabled={!username || !password}
+						title={
+							!username || !password
+								? 'Please complete the required fields to enable'
+								: 'Sign In'
+						}
+					>
 						SIGN IN
 					</button>
 				</form>
