@@ -10,16 +10,16 @@ Authentication form UI [`inspiration`](https://dribbble.com/shots/19338138-Log-i
 The goal of this web application is to build a web application where a user can SignUp, SignIn and signOut. This will be achieved using Firebase for authentication, local storage as a persistence mechanism (Later iterations will make use of either MongoDB or PostGreSQL). React and Bootstrap 5 will be used to build the UI. 
 
 ### Feature 1 - Build authentication components (&& Federated Signup (Later))
-1. SignUp form (Page) Complete 01/02
-2. Confirm Signup form (Page) Complete 01/02
-3. SignIn Form (Page) Complete 01/02
-4. Forgot Password (Page) Complete 01/02
+1. SignUp form (Page) Completed 01/02
+2. Confirm Signup form (Page) Completed 01/02
+3. SignIn Form (Page) Completed 01/02
+4. Forgot Password (Page) Completed 01/02
 
 ### Feature 2 - Form validation (Continue here 02/02)
-1. Validation sign up Complete 02/02
-2. Validation confirm sign up 
-3. Validation sign in Complete 02/02
-4. Validation forgot password
+1. Validation sign up Completed 02/02
+2. Validation confirm sign up Completed 02/02
+3. Validation sign in Completed 02/02
+4. Validation forgot password Completed 02/02
 
 ### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
 1. Logic for sign up

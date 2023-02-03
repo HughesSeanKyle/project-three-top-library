@@ -48,7 +48,14 @@ const SignUp = () => {
 	const passwordConfirm = watch('passwordConfirm');
 
 	const disabledBtnClasses =
-		!username || !email || !password || !passwordConfirm
+		!username ||
+		!email ||
+		!password ||
+		!passwordConfirm ||
+		errors?.username?.message ||
+		errors?.email?.message ||
+		errors?.password?.message ||
+		errors?.passwordConfirm?.message
 			? 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500 cursor-not-allowed'
 			: 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500';
 
@@ -110,9 +117,25 @@ const SignUp = () => {
 					</div>
 					<button
 						className={disabledBtnClasses}
-						disabled={!username || !email || !password || !passwordConfirm}
+						disabled={
+							!username ||
+							!email ||
+							!password ||
+							!passwordConfirm ||
+							errors?.username?.message ||
+							errors?.email?.message ||
+							errors?.password?.message ||
+							errors?.passwordConfirm?.message
+						}
 						title={
-							!username || !email || !password || !passwordConfirm
+							!username ||
+							!email ||
+							!password ||
+							!passwordConfirm ||
+							errors?.username?.message ||
+							errors?.email?.message ||
+							errors?.password?.message ||
+							errors?.passwordConfirm?.message
 								? 'Please complete the required fields to enable'
 								: 'Sign Up'
 						}
