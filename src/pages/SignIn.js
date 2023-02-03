@@ -27,7 +27,10 @@ const SignIn = () => {
 	const password = watch('password');
 
 	const disabledBtnClasses =
-		!username || !password
+		!username ||
+		!password ||
+		errors?.username?.message ||
+		errors?.password?.message
 			? 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500 cursor-not-allowed'
 			: 'w-full my-5 py-2 bg-custom-green shadow-md shadow-custom-gray text-white font-light rounded-lg hover:shadow-md hover:shadow-custom-white hover:bg-custom-green-500';
 
