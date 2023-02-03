@@ -22,6 +22,9 @@ The goal of this web application is to build a web application where a user can 
 4. Validation forgot password Completed 02/02
 
 ### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
+0. IMPORTANT - Would be best to set firebase auth methods up on the server side to offer an additional layer of security. When setting auth methods directly on the client side the web app is exposed to security vulnerabilties such as man-in-the-middle attacks. This ensures that sensitive information such as passwords and tokens are not transmitted directly from the client to the authentication service.
+Additionaly, when all needed methods are implemented convert service to a cloud function. Enhanced security features: Cloud functions provided by platforms such as Firebase come with built-in security features, such as encryption and firewalls, to help secure sensitive data and prevent unauthorized access.
+
 1. Logic for sign up
 1.1 When adding firebase auth logic implement isSubmitting from RHF. If isSubmitting true then loader in btn else none. Same goes for other forms 
 1.2 Consider what user attributes will be useful right from the start  
@@ -32,6 +35,7 @@ This route can only be accessed via Signup as step 1 of the flow
 5. Logic Forgot Password 
 
 ### Feature 4 - User authentication alerts 
+0. NOTE: When implementing alerts here, try to incorporate the useTrasition hook to animate the mounting and unmounting of the alert. See if a lib like animate.js can be used. 
 1. Alerts sign up
 2. Alerts confirm sign up
 3. Alerts sign in
