@@ -51,3 +51,19 @@
 		margin-top: 9px;
 	}
 }
+
+/* Scrollbar styles  */
+
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+	background-color: #dddee0;
+	cursor: pointer;
+	box-shadow: #0f2525 0px 7px 29px 0px;
+}
+
+::-webkit-scrollbar-thumb {
+	border-radius: 10px;
+	background-color: #111827;
+	cursor: pointer;
+}
