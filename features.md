@@ -24,10 +24,15 @@ The goal of this web application is to build a web application where a user can 
 ### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
 0. IMPORTANT - Would be best to set firebase auth methods up on the server side to offer an additional layer of security. When setting auth methods directly on the client side the web app is exposed to security vulnerabilties such as man-in-the-middle attacks. This ensures that sensitive information such as passwords and tokens are not transmitted directly from the client to the authentication service.
 Additionaly, when all needed methods are implemented convert service to a cloud function. Enhanced security features: Cloud functions provided by platforms such as Firebase come with built-in security features, such as encryption and firewalls, to help secure sensitive data and prevent unauthorized access.
+- Circle back to auth service later (dmarc issue with sendGrid - See service notes). For now Signup on client side. Complete 07/02
+
 
 1. Logic for sign up
 1.1 When adding firebase auth logic implement isSubmitting from RHF. If isSubmitting true then loader in btn else none. Same goes for other forms 
-1.2 Consider what user attributes will be useful right from the start  
+1.2 Consider what user attributes will be useful right from the start 
+- Build alert component 
+- Use onAuthStateChanged to check emailVerified prop. If false, show alert and ask to resend email? Block certain features of app if not verified. e.g no uploads... 
+- Implement resend verification email functionality.  
 2. Logic for confirm sign up
 This route can only be accessed via Signup as step 1 of the flow
 3. Logic for signin 
