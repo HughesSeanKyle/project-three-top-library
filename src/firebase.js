@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
-import { getFirestore } from 'firebase/firestore';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
@@ -40,15 +40,23 @@ async function signUpWithEmailAndPassword({ email, password, username }) {
 		const user = response.user;
 
 		// Save the user to Firestore database
-		await db.collection('users').doc(user.uid).set({
+		// await db.collection('users').doc(user.uid).set({
+		// 	email: user.email,
+		// 	password: user.password,
+		// 	username: user.username,
+		// 	emailVerified: false,
+		// });
+
+		// Add a new document in collection "cities"
+		await setDoc(doc(db, 'users', user.uid), {
 			email: user.email,
-			password: user.password,
-			username: user.username,
+			password: encryptedPassword,
+			username: username,
 			emailVerified: false,
 		});
 
 		// Send the user a verification email
-		await user.sendEmailVerification();
+		// await user.sendEmailVerification();
 
 		console.log('Sign up successful! Verification email sent.');
 		return {
@@ -74,4 +82,4 @@ const userData = {
 	await signUpWithEmailAndPassword(userData);
 })();
 
-export default app;
+// export default app;
