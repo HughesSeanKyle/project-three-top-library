@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
-import SignIn from './pages/SignIn';
-import SignUp from './pages/SignUp';
-import ForgotPassword from './pages/ForgotPassword';
-import ConfirmSignUp from './pages/ConfirmSignUp';
+import SignIn from './pages/SignIn.js';
+import SignUp from './pages/SignUp.js';
+import ForgotPassword from './pages/ForgotPassword.js';
+import ConfirmSignUp from './pages/ConfirmSignUp.js';
 
 function App() {
 	return (
