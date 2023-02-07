@@ -61,7 +61,7 @@ const SignUp = () => {
 
 	return (
 		<div className="bg-custom-green grid xl:grid-cols-2 lg:grid-cols-2 md:grid-cols-1 h-screen w-full">
-			<div className="bg-custom-green overflow-y-auto flex flex-col justify-center content-center items-center form-padding image-bg-mobile-only dark-layer">
+			<div className="bg-custom-green overflow-auto flex flex-col justify-center content-center items-center form-padding image-bg-mobile-only dark-layer">
 				<h2 className="xl:mt-5 xl:mb-5 sm:mt-0 sm:mb-0 text-4xl text-custom-white font-bold text-center mobile-z-index signup-heading">
 					BookWorks.io
 				</h2>
