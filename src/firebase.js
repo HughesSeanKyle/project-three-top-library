@@ -135,6 +135,18 @@ async function signInEmailAndPassword({ email, password }) {
 			};
 		}
 
+		const encryptedPasswordFromDb = user.data.password;
+
+		bcrypt.compare(password, encryptedPasswordFromDb, (error, isMatch) => {
+			if (error) throw error;
+
+			if (isMatch) {
+				console.log('Password match');
+			} else {
+				console.log("Password doesn't match");
+			}
+		});
+
 		/*
 
 			// Create a user with email and password
@@ -167,7 +179,7 @@ async function signInEmailAndPassword({ email, password }) {
 }
 
 const userData = {
-	email: 'khughessean1@yahoo.com',
+	email: 'khughessean@yahoo.com',
 	password: '@Test1234',
 };
 
