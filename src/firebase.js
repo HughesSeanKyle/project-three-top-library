@@ -78,6 +78,16 @@ async function signUpEmailAndPassword({ email, password, username }) {
 	}
 }
 
+// const userData = {
+// 	email: 'khughessean001@yahoo.com',
+// 	password: '@Test12345',
+// 	username: 'testingFromFile_2',
+// };
+
+// (async () => {
+// 	await signUpEmailAndPassword(userData);
+// })();
+
 // Get user by email
 async function fetchUserProfileByEmail(email) {
 	try {
@@ -108,47 +118,45 @@ async function fetchUserProfileByEmail(email) {
 	}
 }
 
-fetchUserProfileByEmail('khughessean@yahoo.com');
-
-// const userData = {
-// 	email: 'khughessean001@yahoo.com',
-// 	password: '@Test12345',
-// 	username: 'testingFromFile_2',
-// };
-
-// (async () => {
-// 	await signUpEmailAndPassword(userData);
-// })();
+// fetchUserProfileByEmail('khughessean@yahoo.com');
 
 // Signin (Confirm email verified in Authstate => useEffect)
 
 async function signInEmailAndPassword({ email, password }) {
-	const saltRounds = 10;
-
-	// Match input pw with encrypted pw in DB
-	const encryptedPassword = await bcrypt.hash(password, saltRounds);
-
-	console.log('encryptedPassword', encryptedPassword);
-
 	try {
-		// Create a user with email and password
-		const response = await signInWithEmailAndPassword(
-			auth,
-			email,
-			encryptedPassword
-		);
+		const user = await fetchUserProfileByEmail(email);
 
-		console.log('response', response);
+		console.log('user', user);
 
-		// Get the user object from the response
-		const authenticatedUser = response.user;
+		if (!user.data) {
+			return {
+				data: null,
+				error: user.error,
+			};
+		}
 
-		console.log('authenticatedUser', authenticatedUser);
+		/*
 
-		return {
-			data: 'Sign in succesful',
-			error: null,
-		};
+			// Create a user with email and password
+			const response = await signInWithEmailAndPassword(
+				auth,
+				email,
+				encryptedPassword
+			);
+
+			console.log('response', response);
+
+			// Get the user object from the response
+			const authenticatedUser = response.user;
+
+			console.log('authenticatedUser', authenticatedUser);
+
+			return {
+				data: 'Sign in succesful',
+				error: null,
+			};
+
+		*/
 	} catch (error) {
 		console.error('Error signing in: ', error);
 		return {
@@ -158,14 +166,14 @@ async function signInEmailAndPassword({ email, password }) {
 	}
 }
 
-// const userData = {
-// 	email: 'khughessean@yahoo.com',
-// 	password: '@Test1234',
-// };
+const userData = {
+	email: 'khughessean1@yahoo.com',
+	password: '@Test1234',
+};
 
-// (async () => {
-// 	await signInEmailAndPassword(userData);
-// })();
+(async () => {
+	await signInEmailAndPassword(userData);
+})();
 
 // **Forgot Password
 
