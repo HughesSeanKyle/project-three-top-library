@@ -35,6 +35,8 @@ Additionaly, when all needed methods are implemented convert service to a cloud 
 - Implement resend verification email functionality.  
 2. Logic for confirm sign up
 This route can only be accessed via Signup as step 1 of the flow
+- Return to this logic later when sendGrid or mailing service set up.
+
 3. Logic for signin 
 4. Logic for signout
 5. Logic Forgot Password 
