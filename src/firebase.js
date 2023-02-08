@@ -4,6 +4,7 @@ import {
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
 	sendEmailVerification,
+	signOut,
 } from 'firebase/auth';
 import {
 	getFirestore,
@@ -49,10 +50,8 @@ async function signUpEmailAndPassword({ email, password, username }) {
 			encryptedPassword
 		);
 
-		// Get the user object from the response
 		const user = response.user;
 
-		// Add a new document in collection "cities"
 		await setDoc(doc(db, 'users', user.uid), {
 			email: user.email,
 			password: encryptedPassword,
@@ -61,7 +60,6 @@ async function signUpEmailAndPassword({ email, password, username }) {
 			emailVerified: false,
 		});
 
-		// Send the user a verification email
 		await sendEmailVerification(auth.currentUser);
 
 		console.log('Sign up successful! Verification email sent.');
@@ -94,7 +92,6 @@ async function fetchUserProfileByEmail(email) {
 		const docRef = query(collection(db, 'users'), where('email', '==', email));
 		const querySnapshot = await getDocs(docRef);
 
-		// Check if a matching document was found
 		if (querySnapshot.empty) {
 			console.log('No such user with email:', email);
 			return {
@@ -137,38 +134,44 @@ async function signInEmailAndPassword({ email, password }) {
 
 		const encryptedPasswordFromDb = user.data.password;
 
-		bcrypt.compare(password, encryptedPasswordFromDb, (error, isMatch) => {
-			if (error) throw error;
+		bcrypt.compare(
+			password,
+			encryptedPasswordFromDb,
+			async (error, isMatch) => {
+				if (isMatch) {
+					console.log('Password match');
+					const response = await signInWithEmailAndPassword(
+						auth,
+						email,
+						encryptedPasswordFromDb
+					);
 
-			if (isMatch) {
-				console.log('Password match');
-			} else {
-				console.log("Password doesn't match");
+					console.log('response', response);
+
+					const authenticatedUser = response.user;
+
+					console.log('authenticatedUser', authenticatedUser);
+
+					return {
+						data: 'Sign in succesful',
+						error: null,
+					};
+				} else {
+					console.log("Password doesn't match");
+					if (error) {
+						return {
+							data: null,
+							error: error,
+						};
+					}
+
+					return {
+						data: null,
+						error: 'Invalid credentials. Please check your email or password',
+					};
+				}
 			}
-		});
-
-		/*
-
-			// Create a user with email and password
-			const response = await signInWithEmailAndPassword(
-				auth,
-				email,
-				encryptedPassword
-			);
-
-			console.log('response', response);
-
-			// Get the user object from the response
-			const authenticatedUser = response.user;
-
-			console.log('authenticatedUser', authenticatedUser);
-
-			return {
-				data: 'Sign in succesful',
-				error: null,
-			};
-
-		*/
+		);
 	} catch (error) {
 		console.error('Error signing in: ', error);
 		return {
@@ -178,18 +181,29 @@ async function signInEmailAndPassword({ email, password }) {
 	}
 }
 
-const userData = {
-	email: 'khughessean@yahoo.com',
-	password: '@Test1234',
-};
+// const userData = {
+// 	email: 'khughessean@yahoo.com',
+// 	password: '@Test1234',
+// };
 
-(async () => {
-	await signInEmailAndPassword(userData);
-})();
+// (async () => {
+// 	await signInEmailAndPassword(userData);
+// })();
 
 // **Forgot Password
 
 // **SignOut
+signOut(auth)
+	.then(() => {
+		// Sign-out successful.
+		console.log('Signed Out');
+		// Run redirect from signOut comp, make sure to clear localstorage and session storage on SignOut.
+		// Refactor to use data error
+	})
+	.catch((error) => {
+		// An error happened.
+		console.log('OOOOOh no, something happened');
+	});
 
 // **check authstate logic
 
