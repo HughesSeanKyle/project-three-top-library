@@ -5,6 +5,9 @@ import {
 	signInWithEmailAndPassword,
 	sendEmailVerification,
 	signOut,
+	checkActionCode,
+	applyActionCode,
+	sendPasswordResetEmail,
 } from 'firebase/auth';
 import {
 	getFirestore,
@@ -190,7 +193,56 @@ async function signInEmailAndPassword({ email, password }) {
 // 	await signInEmailAndPassword(userData);
 // })();
 
-// **Forgot Password
+// **Forgot Password logic and flow
+
+async function sendPasswordReset(email) {
+	try {
+		await sendPasswordResetEmail(email);
+		console.log(
+			'Password reset email sent successfully. Please note the code will expire within 1 Hour'
+		);
+
+		return {
+			data: 'Password reset email sent successfully. Please note the code will expire within 1 Hour',
+			error: null,
+		};
+	} catch (error) {
+		console.error('Error sending password reset email:', error);
+		return {
+			data: null,
+			error: error,
+		};
+	}
+}
+
+async function verifyPasswordResetCode(code) {
+	try {
+		const result = await checkActionCode(code);
+		console.log('Password reset code is valid');
+
+		return {
+			data: result,
+			error: null,
+		};
+	} catch (error) {
+		console.error('Error checking password reset code:', error);
+		return {
+			data: null,
+			error: error,
+		};
+	}
+}
+
+async function applyPasswordReset(code, newPassword) {
+	try {
+		await applyActionCode(code);
+		console.log('Password reset code applied successfully');
+		// Update the user's password
+		// ...
+	} catch (error) {
+		console.error('Error applying password reset code:', error);
+	}
+}
 
 // **SignOut
 async function signUserOut() {

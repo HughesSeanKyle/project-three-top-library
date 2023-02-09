@@ -14,12 +14,14 @@ The goal of this web application is to build a web application where a user can 
 2. Confirm Signup form (Page) Completed 01/02
 3. SignIn Form (Page) Completed 01/02
 4. Forgot Password (Page) Completed 01/02
+5. Forgot Password Confirm (page) Completed 09/02
 
 ### Feature 2 - Form validation (Continue here 02/02)
 1. Validation sign up Completed 02/02
 2. Validation confirm sign up Completed 02/02
 3. Validation sign in Completed 02/02
 4. Validation forgot password Completed 02/02
+5. Validation Forgot Password Confirm (page) Completed 09/02
 
 ### Feature 3 - Implement Firebase Authentication logic (&& Federated Signin)
 0. IMPORTANT - Would be best to set firebase auth methods up on the server side to offer an additional layer of security. When setting auth methods directly on the client side the web app is exposed to security vulnerabilties such as man-in-the-middle attacks. This ensures that sensitive information such as passwords and tokens are not transmitted directly from the client to the authentication service.
@@ -40,6 +42,9 @@ This route can only be accessed via Signup as step 1 of the flow
 3. Logic for signin 
 4. Logic for signout
 5. Logic Forgot Password 
+- This section should have a two part flow. 1. The email is added to the input, 2. The confirm code ui form (Comp can only be accessed by initiating step 1). Make use of useNavigate
+6. Logic Forgot Password Confirm 
+
 
 ### Feature 4 - User authentication alerts 
 0. NOTE: When implementing alerts here, try to incorporate the useTrasition hook to animate the mounting and unmounting of the alert. See if a lib like animate.js can be used. 
@@ -48,6 +53,8 @@ This route can only be accessed via Signup as step 1 of the flow
 3. Alerts sign in
 4. Alerts sign out
 5. Alerts forgot password
+5. Alerts forgot password confirm
+6. Keep track if route is admin or auth
 
 ### Feature 5 - Book application 
 1. Protect route if no JWT
