@@ -197,7 +197,7 @@ async function signInEmailAndPassword({ email, password }) {
 
 async function sendPasswordReset(email) {
 	try {
-		await sendPasswordResetEmail(email);
+		await sendPasswordResetEmail(auth, email);
 		console.log(
 			'Password reset email sent successfully. Please note the code will expire within 1 Hour'
 		);
@@ -214,6 +214,11 @@ async function sendPasswordReset(email) {
 		};
 	}
 }
+
+(async () => {
+	let result = await sendPasswordReset('khughessean@yahoo.com');
+	console.log('result', result);
+})();
 
 async function verifyPasswordResetCode(code) {
 	try {
@@ -238,9 +243,17 @@ async function applyPasswordReset(code, newPassword) {
 		await applyActionCode(code);
 		console.log('Password reset code applied successfully');
 		// Update the user's password
-		// ...
+		const updatedPassword = await auth.currentUser.updatePassword(newPassword);
+		return {
+			data: updatedPassword,
+			error: null,
+		};
 	} catch (error) {
 		console.error('Error applying password reset code:', error);
+		return {
+			data: null,
+			error: error,
+		};
 	}
 }
 

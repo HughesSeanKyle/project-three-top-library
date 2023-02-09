@@ -27,6 +27,8 @@ The goal of this web application is to build a web application where a user can 
 0. IMPORTANT - Would be best to set firebase auth methods up on the server side to offer an additional layer of security. When setting auth methods directly on the client side the web app is exposed to security vulnerabilties such as man-in-the-middle attacks. This ensures that sensitive information such as passwords and tokens are not transmitted directly from the client to the authentication service.
 Additionaly, when all needed methods are implemented convert service to a cloud function. Enhanced security features: Cloud functions provided by platforms such as Firebase come with built-in security features, such as encryption and firewalls, to help secure sensitive data and prevent unauthorized access.
 - Circle back to auth service later (dmarc issue with sendGrid - See service notes). For now Signup on client side. Complete 07/02
+- New solution for custom email. Try Nodemailer. See [`bookworks-authentication-service`](https://github.com/HughesSeanKyle/bookworks-authentication-service) for more info. 
+
 
 
 1. Logic for sign up
