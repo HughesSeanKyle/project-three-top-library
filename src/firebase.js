@@ -193,17 +193,35 @@ async function signInEmailAndPassword({ email, password }) {
 // **Forgot Password
 
 // **SignOut
-signOut(auth)
-	.then(() => {
-		// Sign-out successful.
-		console.log('Signed Out');
-		// Run redirect from signOut comp, make sure to clear localstorage and session storage on SignOut.
-		// Refactor to use data error
-	})
-	.catch((error) => {
-		// An error happened.
-		console.log('OOOOOh no, something happened');
-	});
+async function signUserOut() {
+	const returnObj = {
+		data: null,
+		error: null,
+	};
+
+	return signOut(auth)
+		.then(() => {
+			// Sign-out successful.
+			console.log('Signed Out');
+			// Run redirect from signOut comp, make sure to clear localstorage and session storage on SignOut.
+			// Refactor to use data error
+			returnObj.data = 'Signed Out';
+			console.log('RO', returnObj);
+			return returnObj;
+		})
+		.catch((error) => {
+			// An error happened.
+			console.log('OOOOOh no, something happened');
+			returnObj.error = error;
+			console.log('RO', returnObj);
+			return returnObj;
+		});
+}
+
+// (async () => {
+// 	let result = await signUserOut();
+// 	console.log('result', result);
+// })();
 
 // **check authstate logic
 
