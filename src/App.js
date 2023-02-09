@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Redirect } from 'react-router-dom';
 import SignIn from './pages/SignIn.js';
 import SignUp from './pages/SignUp.js';
 import ForgotPassword from './pages/ForgotPassword.js';
+import ForgotPasswordConfirm from './pages/ForgotPasswordConfirm.js';
 import ConfirmSignUp from './pages/ConfirmSignUp.js';
 
 function App() {
@@ -14,6 +15,10 @@ function App() {
 				<Route path={'/auth/signup'} element={<SignUp />} />
 				<Route path={'/auth/confirm-signup'} element={<ConfirmSignUp />} />
 				<Route path={'/auth/forgot-password'} element={<ForgotPassword />} />
+				<Route
+					path={'/auth/forgot-password-confirm'}
+					element={<ForgotPasswordConfirm />}
+				/>
 
 				<Route path={'/'} element={<SignIn />} />
 			</Routes>
