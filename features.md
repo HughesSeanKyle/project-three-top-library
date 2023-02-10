@@ -28,6 +28,7 @@ The goal of this web application is to build a web application where a user can 
 Additionaly, when all needed methods are implemented convert service to a cloud function. Enhanced security features: Cloud functions provided by platforms such as Firebase come with built-in security features, such as encryption and firewalls, to help secure sensitive data and prevent unauthorized access.
 - Circle back to auth service later (dmarc issue with sendGrid - See service notes). For now Signup on client side. Complete 07/02
 - New solution for custom email. Try Nodemailer. See [`bookworks-authentication-service`](https://github.com/HughesSeanKyle/bookworks-authentication-service) for more info. 
+- Use the current Firebase auth logic setup on the client side and setup nodemailer in the auth service as a cloud function. 1. Use this service to implement custom forgot password logic. 2. To build custom signup logic. More info in [`bookworks-authentication-service`](https://github.com/HughesSeanKyle/bookworks-authentication-service)
 
 
 
@@ -65,4 +66,26 @@ This route can only be accessed via Signup as step 1 of the flow
 4. Incorporate with firebase storage mechanisms => (CRUD)
 For this make use of the cloud functions and follow micro services architecture pattern 
 5. Use project 2 (Niftyswap) dashboard as inspiration for this dash. 
+
+## Email service features 
+
+### Features - Setup cloud function for node mailer with custom email
+Spark plan (Firebase) no longer offers cloud functions as a service. However, stick to microservice architecture, create this service and deploy with render. Only issue os that you will not have auto scalling and all the great features that come with serverless functions.
+
+Update: 10/02 - Vercel offers FaaS (Functions as a Service) - Use
+
+- Setting up Nodemailer for with secure password - More info available [`here`](https://stackoverflow.com/questions/72470777/nodemailer-response-535-5-7-8-username-and-password-not-accepted)
+
+1. Setup Nodemailer for custom signup email with auth code to email
+- Error handling 'error-back' pattern - Done 10/02
+- Use this function in SignUp flow. When user inputs code and verifyActionCode returns data=true then set user emailVerified attribute to true in Firebase
+
+2. Setup Nodemailer for custom forgot password with authcode to verify email reset (Update this feature progress in email services features.md as well)
+- Error handling 'error-back' pattern - Done 10/02
+- Use this function in SignUp flow. When user inputs code and verifyActionCode returns data=true then redirect user to Forgot Password Confirm => Enter code and use Firebase's reset password API to update the password => Make sure this password is encrypted. 
+
+3. Test functions locally before deploy
+4. Ensure that this function can only be called from whitelisted domains 
+- The Bookworks client side domain 
+- Local 
 
