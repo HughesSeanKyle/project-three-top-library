@@ -9,56 +9,12 @@ import ForgotPassword from './pages/ForgotPassword.js';
 import ForgotPasswordConfirm from './pages/ForgotPasswordConfirm.js';
 import ConfirmSignUp from './pages/ConfirmSignUp.js';
 
+// api
+import { sendVerificationCode, verifyEmailCode } from './api/emailService.js';
+
 function App() {
-	useEffect(() => {
-		// TEST SEND CONFIRM CODE
-		// var myHeaders = new Headers();
-		// myHeaders.append('Content-Type', 'application/json');
-
-		// var raw = JSON.stringify({
-		// 	recipient: 'khughessean@yahoo.com',
-		// 	message: 'Test message',
-		// });
-
-		// var requestOptions = {
-		// 	method: 'POST',
-		// 	headers: myHeaders,
-		// 	body: raw,
-		// 	redirect: 'follow',
-		// };
-
-		// fetch(
-		// 	'https://bookworks-email-service.onrender.com/email/send-confirm-code',
-		// 	requestOptions
-		// )
-		// 	.then((response) => response.json())
-		// 	.then((result) => console.log(result))
-		// 	.catch((error) => console.log('error', error));
-
-		// TEST VERIFY CODE
-		var myHeaders = new Headers();
-		myHeaders.append('Content-Type', 'application/json');
-
-		var raw = JSON.stringify({
-			recipient: 'khughessean@yahoo.com',
-			code: '201605',
-		});
-
-		var requestOptions = {
-			method: 'POST',
-			headers: myHeaders,
-			body: raw,
-			redirect: 'follow',
-		};
-
-		fetch(
-			'https://bookworks-email-service.onrender.com/email/verify-action-code',
-			requestOptions
-		)
-			.then((response) => response.text())
-			.then((result) => console.log(result))
-			.catch((error) => console.log('error', error));
-	}, []);
+	// useEffect(() => {
+	// }, []);
 
 	return (
 		<BrowserRouter>

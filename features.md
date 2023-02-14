@@ -33,11 +33,21 @@ Additionaly, when all needed methods are implemented convert service to a cloud 
 
 
 1. Logic for sign up
-1.1 When adding firebase auth logic implement isSubmitting from RHF. If isSubmitting true then loader in btn else none. Same goes for other forms 
-1.2 Consider what user attributes will be useful right from the start 
+1.0 NEW => Service for action verification has been built and deployed. Service does two things: 
+- 1.0.1. Sends the user an action code (This function can be used for Signup => Confirm Signup, Forgot Password => Forgot Password Confirm or Code confirm to delete sensitive content)
+- 1.0.2. Verifies the action code
+
+1.1 Implement email service logic into signup 
+- When user signs up send code 
+- If code validated and returns true then set email to verified in DB
+
+1.2 When adding firebase auth logic implement isSubmitting from RHF. If isSubmitting true then loader in btn else none. Same goes for other forms 
+
+1.3 Consider what user attributes will be useful right from the start 
 - Build alert component 
 - Use onAuthStateChanged to check emailVerified prop. If false, show alert and ask to resend email? Block certain features of app if not verified. e.g no uploads... 
-- Implement resend verification email functionality.  
+- Implement resend verification email functionality. 
+
 2. Logic for confirm sign up
 This route can only be accessed via Signup as step 1 of the flow
 - Return to this logic later when sendGrid or mailing service set up.
@@ -45,8 +55,15 @@ This route can only be accessed via Signup as step 1 of the flow
 3. Logic for signin 
 4. Logic for signout
 5. Logic Forgot Password 
-- This section should have a two part flow. 1. The email is added to the input, 2. The confirm code ui form (Comp can only be accessed by initiating step 1). Make use of useNavigate
+This section should have a two part flow. 1. The email is added to the input, 2. The confirm code ui form (Comp can only be accessed by initiating step 1). Make use of useNavigate
+
+5.0 => Implement email service here
+- 5.0.1. User initiaites forgot password 
+- 5.0.2. Email with custom message and code sent to user 
+- 5.0.3. User will input code, new pw and confirm new pw on forgot password confirm page 
+
 6. Logic Forgot Password Confirm 
+- See 5 above. 
 
 
 ### Feature 4 - User authentication alerts 
