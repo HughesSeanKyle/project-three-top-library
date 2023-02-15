@@ -5,6 +5,8 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 
+import { signUpEmailAndPassword } from '../auth/authHelpers.js';
+
 const validationSchema = yup.object().shape({
 	username: yup
 		.string()

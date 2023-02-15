@@ -9,9 +9,6 @@ import ForgotPassword from './pages/ForgotPassword.js';
 import ForgotPasswordConfirm from './pages/ForgotPasswordConfirm.js';
 import ConfirmSignUp from './pages/ConfirmSignUp.js';
 
-// api
-import { sendVerificationCode, verifyEmailCode } from './api/emailService.js';
-
 function App() {
 	// useEffect(() => {
 	// }, []);

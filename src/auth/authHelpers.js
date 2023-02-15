@@ -3,10 +3,7 @@ import {
 	getAuth,
 	createUserWithEmailAndPassword,
 	signInWithEmailAndPassword,
-	sendEmailVerification,
 	signOut,
-	checkActionCode,
-	applyActionCode,
 	sendPasswordResetEmail,
 } from 'firebase/auth';
 
@@ -22,6 +19,9 @@ import {
 } from 'firebase/firestore';
 import dotenv from 'dotenv';
 import bcrypt from 'bcrypt';
+
+import { sendVerificationCode, verifyEmailCode } from '../api/emailService.js';
+
 dotenv.config();
 
 const firebaseConfig = {
@@ -41,7 +41,7 @@ const db = getFirestore(app);
 // ***Logic here***
 // Sign Up
 
-async function signUpEmailAndPassword({ email, password, username }) {
+export async function signUpEmailAndPassword({ email, password, username }) {
 	const saltRounds = 10;
 
 	const encryptedPassword = await bcrypt.hash(password, saltRounds);
@@ -64,8 +64,17 @@ async function signUpEmailAndPassword({ email, password, username }) {
 			emailVerified: false,
 		});
 
-		// Replace with own email verification code
-		await sendEmailVerification(auth.currentUser);
+		const signUpMessage =
+			"Thank you for Signing up with BookWorks. You're one step away from enjoying our app. Please enter the code provided to verify your email.";
+
+		const sendResult = await sendVerificationCode(email, signUpMessage);
+
+		if (sendResult.error) {
+			return {
+				data: null,
+				error: sendResult.error,
+			};
+		}
 
 		console.log('Sign up successful! Verification email sent.');
 		return {
@@ -81,15 +90,15 @@ async function signUpEmailAndPassword({ email, password, username }) {
 	}
 }
 
-// const userData = {
-// 	email: 'khughessean001@yahoo.com',
-// 	password: '@Test12345',
-// 	username: 'testingFromFile_2',
-// };
+const userData = {
+	email: 'khughessean001@yahoo.com',
+	password: '@Test12345',
+	username: 'testingFromFile_2',
+};
 
-// (async () => {
-// 	await signUpEmailAndPassword(userData);
-// })();
+(async () => {
+	await signUpEmailAndPassword(userData);
+})();
 
 // Get user by email
 async function fetchUserProfileByEmail(email) {
@@ -210,48 +219,6 @@ async function sendPasswordReset(email) {
 		};
 	} catch (error) {
 		console.error('Error sending password reset email:', error);
-		return {
-			data: null,
-			error: error,
-		};
-	}
-}
-
-(async () => {
-	let result = await sendPasswordReset('khughessean@yahoo.com');
-	console.log('result', result);
-})();
-
-async function verifyPasswordResetCode(code) {
-	try {
-		const result = await checkActionCode(code);
-		console.log('Password reset code is valid');
-
-		return {
-			data: result,
-			error: null,
-		};
-	} catch (error) {
-		console.error('Error checking password reset code:', error);
-		return {
-			data: null,
-			error: error,
-		};
-	}
-}
-
-async function applyPasswordReset(code, newPassword) {
-	try {
-		await applyActionCode(code);
-		console.log('Password reset code applied successfully');
-		// Update the user's password
-		const updatedPassword = await auth.currentUser.updatePassword(newPassword);
-		return {
-			data: updatedPassword,
-			error: null,
-		};
-	} catch (error) {
-		console.error('Error applying password reset code:', error);
 		return {
 			data: null,
 			error: error,
